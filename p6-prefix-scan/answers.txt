@@ -1,0 +1,1 @@
+#1:	Some performance-enhancing optimizations I added were having each thread handle two input elements this enabled my program to run more efficiently and add more elements. I handled arrays not being a power of two in size by adding zeros until the input size becomes a multiple of BLOCK_SIZE*2 in power of two.

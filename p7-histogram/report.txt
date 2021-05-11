@@ -1,0 +1,18 @@
+Baseline Kernel Time:	0.000221 s
+After Optimizations:	0.000092 s
+Total Speedup:		2.4x speedup
+
+
+Using just shared memory:
+After Optimizations:	0.000132 s
+This allowed a closer manipulation of the data to the registers and allowed the kernel to move quicker instead of writing out to the device memory. This was tricky because it needed to be used by multiple Blocks. It's speedup was helpful due to it shared memory being much quicker. 
+
+Optimized Private Histogram Bin Initialization:
+After Optimizations:	0.000194 s
+This allowed a greater speedup because it didn't initialized each element to 0 in every single thread. This is a much more efficient way of initialization for an element that if I were not careful could have made the kernel less efficient.
+
+Optimized Private Histogram to Device Histogram Output:
+After Optimizations:	0.000208 s
+This was a small improvement but in the end allowed for each thread to do their part in transferring the data to the device memory. This allowed using the shared memory to be even more efficient.
+
+Overall Optimizations:	I tried many different optimizations, from using only shared memory then at the end adding the results of the shared memory into the device memory, then I used external memory for the entire private histogram array, that seemed to speed up the kernel extensively. I also optimized how the kernel transferred the private histogram to the one on device that transfers back to the cpu. This ended up yielding pretty great result with a 2.4x speedup overall from a pretty efficient starting code I used. I think my optimizations helped because they used external shared memory instead of adding to the devices memory, therefore keeping most of the addition closer to the threads registers. Then optimizing the final readout back to the Device memory was the cherry on top that allowed for a greater amount of speedup. Some difficulties I ran into were general bugs in how my code finished out the data into the bins array, then finally when to synchronize the threads to allow them to move as asynchronously as possible, as to not create slow downs. 

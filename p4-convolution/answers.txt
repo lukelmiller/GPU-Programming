@@ -1,0 +1,43 @@
+Problem_Size    	Setting_UP(s) 	Memory_Allocation(s)    	Copy_Data_H2D(s)    	Kernel(s)    	Copy_Data_D2H(s)
+10x10		0.000015		0.863038			0.000040			0.000042		0.000022
+100x100		0.000242		0.831370			0.000045			0.000040		0.000056
+1000x1000	0.019548		0.826722			0.001083			0.000179		0.001302
+1250x1250	0.030632		0.815527			0.001650			0.000257		0.001465
+3000x3000	0.131222		0.853168			0.008576			0.001296		0.009379
+6000x6000	0.478392		0.767316			0.030374			0.004884		0.031006
+10000x10000	1.062235		0.759831			0.082010			0.013493		0.085209
+15000x15000	2.180123		0.756216			0.178724			0.025608		0.190500
+25000x25000	5.770220		0.830165			0.496241			0.041168		0.527467
+40000x40000	14.494886	0.772154			1.294814			0.122731		1.354336
+
+
+1.	
+Problem_Size		Kernel(s)		FLOPS
+10x10			0.000042			119047619
+100x100			0.000040			12500000000
+1000x1000		0.000179			279329608900
+1250x1250		0.000257			303988326800
+3000x3000		0.001296			347222222222
+6000x6000		0.004884			368550368600
+10000x10000		0.013493			370562513900
+15000x15000		0.025608			439315838800
+25000x25000		0.041168			759084726000
+40000x40000		0.122731			651832055500
+
+I chose inputs that reflected magnitude greater increases in size and more nuanced smaller increases to look at both types of input changes. The FLOPS ranged from 119047619 to 651832055500.The floating point operations per second seemed to increase as the size of images also increased, that is for the GPU side.
+
+
+2.
+Problem_Size		Total_Time(s)		Overhead(s)		Overhead(%)
+10x10			0.863142			0.8631			99.99%
+100x100			0.831511			0.831471			99.99%
+1000x1000		0.829286			0.829107			99.99%
+1250x1250		0.818899			0.818642			99.99%
+3000x3000		0.872419			0.871123			99.85%
+6000x6000		0.83358			0.828696			99.41%
+10000x10000		0.940543			0.92705			98.57%
+15000x15000		1.151048			1.12544			97.77%
+25000x25000		1.895041			1.853873			97.83%
+40000x40000		3.544035			3.421304			96.54%
+
+The percentage overhead time ranged from 99.99% to 96.54%. The overhead time increased as the image size went up but that was mostly counteracted by the increase in time from copying memory on the CPU. Overall the overhead percent decreases as the image size increased.

@@ -1,0 +1,6 @@
+1.Each output matrix is going to have two input matrixes of m x k & k x n size. Y have to multiply the matrix A, N times for each column in B because the multiplication is column by row. Then you need to multiply Matrix B, M times for all the rows in A. 
+
+2. (total # memory access) / (total # floating point ops)
+    1 (for access element A[row*k+i]) + 1 (for access element B[i*n+col]) / 
+    1 (for multiplying A[row*k+i] * B[i*n+col]) + 1 (adding the result to summation variable)
+    = 2/2 per thread	ratio: 1:1

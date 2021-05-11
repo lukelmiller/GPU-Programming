@@ -1,0 +1,3 @@
+1)	__syncthreads() in a single single thread runs once before the for-loop 10 times in the for-loop then once outside the for-loop. If there are 512 threads per block that means per block __syncthreads runs (12*512) = 6144 times in a full block.
+
+2)	Minimum is 1 op Maximum is Log(base2)(Input_Size) and average is summation[max+(max-1)+(max-2)+...+1]/max

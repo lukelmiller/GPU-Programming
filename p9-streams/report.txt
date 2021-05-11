@@ -1,0 +1,22 @@
+Example Execution:
+
+cs2203:llm009:~/p9-streams$ ./stream
+
+Setting up the problem...0.001289 s
+    Vector size = 10000
+Allocating device variables...0.000224 s
+
+Running WITHOUT streams..101.500931 s
+Verifying WITHOUT streams results 0...TEST PASSED
+Verifying WITHOUT streams results 1...TEST PASSED
+
+Running WITH streams..56.186344 s
+Verifying WITH streams results 0...TEST PASSED
+Verifying WITH streams results 1...TEST PASSED
+
+
+
+
+
+
+As you can see the execution without out streams took around 102 seconds and the execution with streams took around 56 seconds. This is around a 1.8x speed up when using multiple streams in this case.
