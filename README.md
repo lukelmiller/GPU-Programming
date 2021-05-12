@@ -1,2 +1,2 @@
 # GPU Programming
-This is a repo for all of my GPU Programming projects. UARK GPU Programming Spring 2021 CSCE 4643.
+This is a repo for all of my GPU Programming projects. UARK GPU Programming Spring 2021 CSCE 4643. This course introduced massively parallel programming using Graphics Processing Units (GPUs). Basic programming model, GPU thread hierarchy, and GPU memory architecture were covered. Various performance optimization techniques and parallel patterns was discussed to deal with real-life applications.
